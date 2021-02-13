@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBPrimeStoneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="IdEstudiante" />
+    </Key>
+    <Property Name="IdEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Edad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estudiante_Curso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Estudiante" Type="int" />
+    <Property Name="Curso" Type="int" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Estudiant__Curso__286302EC">
+    <End Role="Table" Type="Self.Table" Multiplicity="0..1" />
+    <End Role="Estudiante_Curso" Type="Self.Estudiante_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="Estudiante_Curso">
+        <PropertyRef Name="Curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiant__Estud__276EDEB3">
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+    <End Role="Estudiante_Curso" Type="Self.Estudiante_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="IdEstudiante" />
+      </Principal>
+      <Dependent Role="Estudiante_Curso">
+        <PropertyRef Name="Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBPrimeStoneModelStoreContainer">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudiante_Curso" EntityType="Self.Estudiante_Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Estudiant__Curso__286302EC" Association="Self.FK__Estudiant__Curso__286302EC">
+      <End Role="Table" EntitySet="Table" />
+      <End Role="Estudiante_Curso" EntitySet="Estudiante_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiant__Estud__276EDEB3" Association="Self.FK__Estudiant__Estud__276EDEB3">
+      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="Estudiante_Curso" EntitySet="Estudiante_Curso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

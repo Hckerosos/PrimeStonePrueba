@@ -1,0 +1,37 @@
+﻿@model List<PrimeStone.Models.EstudianteVM>
+
+@{
+    ViewBag.Title = "Obtener";
+}
+<h1>Estudiantes</h1>
+<hr />
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>IDEstudiante</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Acción</th>
+        </tr>
+        @foreach (var estudiante in Model)
+        {
+            <tr>
+                <td>@estudiante.IdEstudiante</td>
+                <td>@estudiante.Nombre</td>
+                <td>@estudiante.Edad</td>
+                <td><a href="~/estudiante/editar/@estudiante.IdEstudiante" class="btn btn-warning">Editar</a>
+                <a href="~/estudiante/eliminar/@estudiante.IdEstudiante" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+
+        }
+
+    </table>
+    <div class="text-right">
+        <a href="~/estudiante/nuevo" class="btn btn-primary">Nuevo</a>
+    </div>
+
+</div>
+
+
+

@@ -1,0 +1,7 @@
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\bin\Debug\PrimeStone.Modelos.exe.config
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\bin\Debug\PrimeStone.Modelos.exe
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\bin\Debug\PrimeStone.Modelos.pdb
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\obj\Debug\PrimeStone.Modelos.csprojAssemblyReference.cache
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\obj\Debug\PrimeStone.Modelos.csproj.CoreCompileInputs.cache
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\obj\Debug\PrimeStone.Modelos.exe
+C:\ProyectosFtMiguel\PruebaTecnicaPrimeStone\PrimeStone\PrimeStone.Modelos\obj\Debug\PrimeStone.Modelos.pdb

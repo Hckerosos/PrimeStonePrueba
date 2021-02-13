@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBPrimeStoneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="IdEstudiante" />
+    </Key>
+    <Property Name="IdEstudiante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Edad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Estudiante_Curso" Relationship="Self.FK__Estudiant__Estud__276EDEB3" FromRole="Estudiante" ToRole="Estudiante_Curso" />
+  </EntityType>
+  <EntityType Name="Estudiante_Curso">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Estudiante" Type="Int32" />
+    <Property Name="Curso" Type="Int32" />
+    <NavigationProperty Name="Estudiante1" Relationship="Self.FK__Estudiant__Estud__276EDEB3" FromRole="Estudiante_Curso" ToRole="Estudiante" />
+    <NavigationProperty Name="Table" Relationship="Self.FK__Estudiant__Curso__286302EC" FromRole="Estudiante_Curso" ToRole="Table" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="IdCurso" />
+    </Key>
+    <Property Name="IdCurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Estudiante_Curso" Relationship="Self.FK__Estudiant__Curso__286302EC" FromRole="Table" ToRole="Estudiante_Curso" />
+  </EntityType>
+  <Association Name="FK__Estudiant__Estud__276EDEB3">
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="0..1" />
+    <End Role="Estudiante_Curso" Type="Self.Estudiante_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="IdEstudiante" />
+      </Principal>
+      <Dependent Role="Estudiante_Curso">
+        <PropertyRef Name="Estudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Estudiant__Curso__286302EC">
+    <End Role="Table" Type="Self.Table" Multiplicity="0..1" />
+    <End Role="Estudiante_Curso" Type="Self.Estudiante_Curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Table">
+        <PropertyRef Name="IdCurso" />
+      </Principal>
+      <Dependent Role="Estudiante_Curso">
+        <PropertyRef Name="Curso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBPrimeStoneEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" />
+    <EntitySet Name="Estudiante_Curso" EntityType="Self.Estudiante_Curso" />
+    <EntitySet Name="Table" EntityType="Self.Table" />
+    <AssociationSet Name="FK__Estudiant__Estud__276EDEB3" Association="Self.FK__Estudiant__Estud__276EDEB3">
+      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="Estudiante_Curso" EntitySet="Estudiante_Curso" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Estudiant__Curso__286302EC" Association="Self.FK__Estudiant__Curso__286302EC">
+      <End Role="Table" EntitySet="Table" />
+      <End Role="Estudiante_Curso" EntitySet="Estudiante_Curso" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
